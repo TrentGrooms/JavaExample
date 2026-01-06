@@ -1,0 +1,22 @@
+### GET all super heros
+GET http://localhost:8080/
+
+### add a new super hero
+POST http://localhost:8080/add
+Content-Type: application/json
+
+{
+    "strengthLevel": 5,
+    "name": "Batman",
+    "superPower": "Money"
+}
+
+### Add a new superhero with invalid strength level
+POST http://localhost:8080/add
+Content-Type: application/json
+
+{
+  "strengthLevel": 100,
+  "name": "",
+  "superPower": "Flight"
+}

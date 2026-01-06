@@ -1,6 +1,6 @@
-package com.example.demo.repository;
+package com.example.SuperHeroAPI.repository;
 
-import com.example.demo.model.SuperHero;
+import com.example.SuperHeroAPI.model.SuperHero;
 import org.springframework.data.repository.CrudRepository;
 
 public interface SuperHeroRepository extends CrudRepository<SuperHero, Integer>{
