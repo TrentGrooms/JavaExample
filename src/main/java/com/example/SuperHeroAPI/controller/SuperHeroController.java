@@ -2,28 +2,33 @@ package com.example.SuperHeroAPI.controller;
 
 import com.example.SuperHeroAPI.model.SuperHero;
 import com.example.SuperHeroAPI.repository.SuperHeroRepository;
+import com.example.SuperHeroAPI.service.SuperHeroService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class SuperHeroController {
 
     @Autowired
-    SuperHeroRepository superHeroRepository;
+    private SuperHeroService superHeroService;
 
     @GetMapping
     public Iterable<SuperHero> getSuperHero(){
-        return superHeroRepository.findAll();
+
+        return superHeroService.getAllSuperHeros();
     }
 
     @PostMapping("/add")
-    public void addSuperHero(@Valid @RequestBody SuperHero superHero){
-        superHeroRepository.save(superHero);
+    public SuperHero postSuperHero(@Valid @RequestBody SuperHero superHero){
+        return superHeroService.createSuperHero(superHero);
     }
+
+    @GetMapping("/name/{name}")
+    public Iterable<SuperHero> getSuperHeroByName(@PathVariable String name){
+        return superHeroService.getSuperHeroByName(name);
+    }
+
 
 }

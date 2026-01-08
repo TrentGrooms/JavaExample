@@ -14,7 +14,7 @@ import org.hibernate.validator.constraints.Range;
 public class SuperHero {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Integer id;
 
 

@@ -1,6 +1,9 @@
 ### GET all super heros
 GET http://localhost:8080/
 
+### Get all super hereos by name
+GET http://localhost:8080/name/batman
+
 ### add a new super hero
 POST http://localhost:8080/add
 Content-Type: application/json
